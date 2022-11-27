@@ -5,13 +5,10 @@ from opensearchpy import OpenSearch
 from datetime import datetime
 import pytz
 
-region = "ap-southeast-1"
-service = "es"
 auth = (os.environ.get("OPENSEARCH_USER"), os.environ.get("OPENSEARCH_PASSWORD"))
 opensearch_host = os.environ.get("OPENSEARCH_HOST")
 index = os.environ.get("OPENSEARCH_INDEX")
-type = "_doc"
-url = f"https://{opensearch_host}/{index}/{type}"
+url = f"https://{opensearch_host}/{index}/_doc"
 headers = {"Content-Type": "application/json"}
 
 s3 = boto3.client("s3")
